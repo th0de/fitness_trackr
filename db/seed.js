@@ -76,20 +76,21 @@ const syncAndSeed = async () => {
     await dropTables ();
     console.log(`tables dropped`);
 
-    await createActivities('Hiking');
-    await createActivities('Biking');
-    await createActivities('Climbing');
-    await createActivities('Swimming');
-    await createActivities('Skiing');
-    await createActiviteis('Riding');
-    await createRoutines('Marathon');
-    await createRoutines('Tri Atholon');
-    await createRoutines('Gym');
-    await createRoutines('Trad');
-    await createRoutines('Bi Atholon');
-    await createRoutines('Groomers');
-    await createRoutines('Trees/BackCountry')
-    await createRoutines('Park');
+    await createActivities(id='00'),('Hiking'),(description='Walking through variable terrain usually outdoors for pleasure and exercise.');
+    await createActivities(id='01'),('Biking'),(description='Walking through variable terrain usually outdoors for pleasure and exercise.');
+    await createActivities(id='02'),('Climbing'), (description='Walking through variable terrain usually outdoors for pleasure and exercise.');
+    await createActivities(id='03'),('Swimming'), (description='Walking through variable terrain usually outdoors for pleasure and exercise.');
+    await createActivities(id='04'),('Skiing'), (description='Walking through variable terrain usually outdoors for pleasure and exercise.');
+    await createActiviteis(id='05'),('Riding'), (description='Walking through variable terrain usually outdoors for pleasure and exercise.');
+    
+    await createRoutines(id='0'),(is_public = true)('Marathon'),(goal= 'Run 24 miles');
+    await createRoutines(id='1'),(is_public = true) ('Tri Atholon'),(goal='Run bike and swim 24 miles');
+    await createRoutines(id='2'),(is_public = true) ('Gym'),(goal='Perform more perfect form and push harder climb routes than you would outdoors in repetition to increase athleticism');
+    await createRoutines(id='3'),(is_public = true) ('Trad'),(goal='Make anchors outdoors while climbing either top rope or in lead to conquer a totally unprimed rock face');
+    await createRoutines(id='4'),(is_public = true) ('Bi Atholon'),(goal='Run and swim 24 miles');
+    await createRoutines(id='5'),(is_public = true) ('Groomers'),(goal='Speed through that corderoy');
+    await createRoutines(id='6'),(is_public = true) ('Trees/BackCountry'),(goal= 'Smash pow')
+    await createRoutines(id='7'),(is_public = true) ('Park'),(goal= 'Hit the jib girrafe, throw 1 japan and one boardslide (your choice of rail or tube) in the midsize park');
   } 
   catch (error) {
     console.log(error)
