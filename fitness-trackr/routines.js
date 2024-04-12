@@ -1,13 +1,14 @@
-const createRoutines = async() => {
+const createRoutines = async(routine_id) => {
   try{
     await client.query(`
     INSERT INTO routines (id)
-    VALUES ('${createRoutines}')
+    VALUES ('${routine_id}')
     INSERT INTO routines (is_public)
-    VALUES ('${createRoutines}')
+    VALUES ('${routine_id}')
     INSERT INTO routines (name)
-    VALUES ('${createRoutines})
+    VALUES ('${routine_id})
     INSERT INTO routines (goal) `); 
+    return createRoutines;
   }catch (error) {
   console.log(error);
   }
@@ -21,6 +22,7 @@ const getRoutines = async () => {
     SELECT name FROM routines
     SELECT goal FROM routines
     `)
+    return rows;
   } catch (error) {
   console.log(error);
   }
