@@ -1,31 +1,34 @@
-const activitiesRoutines = async() => { 
+const { createActivities } = require('./activities.js');
+const { routinesActivities } = require('./routines_activities.js');
+
+const routinesActivities = async() => { 
   try{
- 
     try{
       await client.query(`
       INSERT INTO activities (name)
       VALUES ('${createActivities}')
       INSERT INTO activities (id)
-      VALUES ('${}')
+      VALUES ('${createActivities}')
       INSERT INTO activities (description)
-      VALUES ('${}) `); 
+      VALUES ('${createActivities}) 
+      `); 
  
     }catch (error) {
     console.log(error);
     }
-  }
+  
   
   const getActivities = async () => {
-    try{
+    try{ 
       await client.query(`
       SELECT id FROM activities
       SELECT name FROM activities
       SELECT`)
-    } catch (error) {
+    } catch(error) {
     console.log(error);
     }
-  }
   
+
   try{
     await client.query(`
     INSERT INTO routines (id)
@@ -41,6 +44,7 @@ const activitiesRoutines = async() => {
   console.log(error);
   }
   
+  
   try{
     
     await client.query(`
@@ -53,10 +57,10 @@ const activitiesRoutines = async() => {
     console.log(error);
     } 
   }
-  catch (error) {
-    console.log(error);
-  }  
-    try{
+  
+  
+  
+  try{
     await client.query(`
     INSERT INTO routines (id)
     VALUES ('${createRoutines}')
@@ -67,7 +71,9 @@ const activitiesRoutines = async() => {
     INSERT INTO routines (goal) `);
     }catch (error) {
   console.log(error);
-  }try{
+  }
+  
+  try{
     
     await client.query(`
     SELECT id FROM routines
@@ -78,8 +84,12 @@ const activitiesRoutines = async() => {
     } catch (error) {
     console.log(error);
     } 
+  }catch (error){
+    console.log(error);
+  }
+}
 // a routines_activities table with an id, routine_id, activity_id, count
 
 module.exports = {
-  activitiesRoutines
-}
+  routinesActivities
+};

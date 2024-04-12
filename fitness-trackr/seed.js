@@ -1,9 +1,13 @@
 // create a database called fitness-trackr
-
-const { fitnessTracker } = require('./fitness_trackr.js');
-const fitnessTracker = new fitnessTracker('posgres://localhost8080/fitness_trkr');
 const client = require('./client.js');
-const dropTables = require("./");
+const { createRoutines } = require('./routines.js');
+const { createActivities } = require('./activities.js');
+
+const { routinesActivities } = require('./routines_activities.js');
+
+const fitnessTracker = new fitnessTracker('posgres://localhost8080/fitness_trkr');
+
+const dropTables = require("./index.js");
 
 
 
@@ -22,6 +26,7 @@ const dropTables =async () => {
   } catch (error) {
   console.log (error)
   }
+  
 }
 
 // an activities table with an id, name, and description
@@ -54,7 +59,6 @@ const createTables = async () => {
       activity_id INTEGER REFERENCES activities (id),
       count VARCHAR(20),
     )
-
   `);
 
   } catch (error) {
@@ -75,6 +79,8 @@ const syncAndSeed = async () => {
     
     await dropTables ();
     console.log(`tables dropped`);
+    
+    const activities = await createActivities
 
     await createActivities(id='00'),('Hiking'),(description='Walking through variable terrain usually outdoors for pleasure and exercise.');
     await createActivities(id='01'),('Biking'),(description='Walking through variable terrain usually outdoors for pleasure and exercise.');

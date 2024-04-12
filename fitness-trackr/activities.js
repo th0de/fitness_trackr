@@ -4,9 +4,9 @@ const createActivities = async() => {
     INSERT INTO activities (name)
     VALUES ('${createActivities}')
     INSERT INTO activities (id)
-    VALUES ('${}')
+    VALUES ('${createActivities}')
     INSERT INTO activities (description)
-    VALUES ('${}) `); 
+    VALUES ('${createActivities}) `); 
   }catch (error) {
   console.log(error);
   }
